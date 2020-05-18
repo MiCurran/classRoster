@@ -94,25 +94,30 @@ void Roster::print_All()//go tthrough array of students and printfor each
     for (int i = 0; i <= this->lastIndex; i++) (this->classRosterArray)[i]->print();
 }
 
-bool Roster::remove(string ID)
+void Roster::remove(string ID)
 {
     bool found = false;
-    for (int i = 0; i <= lastIndex; i++)
-    {
+    for (int i = 0; i <= lastIndex; ++i) {
         if (this->classRosterArray[i]->getID() == ID)
         {
             found = true;
+            //delete it
             delete this->classRosterArray[i];
-            //move last student to this position so no gaps in array
             this->classRosterArray[i] = this->classRosterArray[lastIndex];
             lastIndex--;//roster is one element smaller
         }
     }
-    return found;
+    if (found == false) {
+        cout << "Student with ID " << ID << " was not found." << endl;
+    }
+    else {
+        cout << ID << " Removed Successfully" << endl;
+    }
 }
 
 void Roster::printAverageDays(string studentID)
 {
+    int average = 0;
     bool found = false;
     for (int i = 0; i <= lastIndex; i++)
     {
@@ -120,7 +125,10 @@ void Roster::printAverageDays(string studentID)
         {
             found = true;
             int* d = classRosterArray[i]->getDays();
-            cout << "Average days remaining for " << studentID << " is " << (d[0] + d[1] + d[2]) / 3 << "\n";
+            average = (d[0] + d[1] + d[2]) / 3;
+            cout << "Average days remaining for (" << studentID << ")" <<"\n";
+            cout << "(" << studentID << "): " << average << "\n";
+
         }
     }
     if (!found) cout << "Student not found!\n";

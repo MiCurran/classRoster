@@ -96,15 +96,15 @@ void Student::setDegreeType(DegreeType d) {
 }
 
 void Student::print()
-{
-    cout << left << studentID << "\t";
-    cout << left << "First Name: " << firstName << "\t";
-    cout << left << "Last Name: " << lastName << "\t";
-    cout << left << "Age: " << age << "\t" << "\t";
-    cout << left << "Days in course: {" << days[0] << ",";
-    cout << left << days[1] << ",";
-    cout << left << days[2] << "}\t";
-    cout << left << degreeTypeStrings[getDegreeType()] << "\n";
+{    
+    cout << left << getID() << "\t";
+    cout << left << "First Name: " << getFirstName() << "\t";
+    cout << left << "Last Name: " << getLastName() << "\t";
+    cout << left << "Age: " << getAge() << "\t" << "\t";
+    cout << left << "Days in course: {" << getDays()[0] << ",";
+    cout << left << getDays()[1] << ",";
+    cout << left << getDays()[2] << "}\t";
+    cout << left << degreeTypeStrings[getDegreeType()] << "\n";   
 }
 
 Student::~Student()

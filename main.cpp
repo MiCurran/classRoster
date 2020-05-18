@@ -41,13 +41,13 @@ int main()
     cout << "\n";
 
     cout << "Removing A3:\n"; // Remove the student with the supplied ID
-    if (classRoster->remove("A3")) classRoster->print_All();
-    else cout << "Student not found!\n";
+    classRoster->remove("A3");
+    cout << "\n";
+    classRoster->print_All(); //prints all to show removal
     cout << "\n";
 
-    cout << "Removing A3:\n"; //344 Remove the student again to check error coindition
-    if (classRoster->remove("A3")) classRoster->print_All();
-    else cout << "Student not found!\n";
+    cout << "Removing A3:\n"; //Remove the student again to check error coindition
+    classRoster->remove("A3");
     cout << "\n";
 
     system("pause");//holds console window up in vstudio
